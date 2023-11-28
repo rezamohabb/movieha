@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install",
+      "type": "npm",
+      "script": "install"
+    },
+    {
+      "label": "Prepare",
+      "type": "npm",
+      "script": "prepare"
+    },
+    {
+      "label": "Run the development server",
+      "type": "npm",
+      "script": "dev"
+    },
+    {
+      "label": "Build",
+      "type": "npm",
+      "script": "build"
+    },
+    {
+      "label": "Run the production server",
+      "type": "npm",
+      "script": "start",
+      "dependsOn": ["Build"]
+    }
+  ]
+}

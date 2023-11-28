@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "Syler.ignore",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "steoates.autoimport",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
