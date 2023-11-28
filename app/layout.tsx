@@ -12,7 +12,7 @@ const vazirmatn = Vazirmatn({
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => (
   <html dir="rtl" lang="fa-IR" className={vazirmatn.variable}>
-    <body className="h-screen grid place-items-center text-2xl font-black text-gray-500">
+    <body className="text-gray-500 leading-tight tracking-tight">
       {children}
     </body>
   </html>
