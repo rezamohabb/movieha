@@ -1,6 +1,13 @@
 {
+  "files.associations": {
+    ".env*": "env",
+    ".env*.example": "env"
+  },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[env]": {
+    "editor.defaultFormatter": "IronGeek.vscode-env"
+  },
   "eslint.validate": ["javascript", "typescript", "typescriptreact"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

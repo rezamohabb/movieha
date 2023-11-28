@@ -1,5 +1,5 @@
-import { CgTrash } from "react-icons/cg";
-import { InputGroup, Label } from "@/app/components";
+import { Suspense } from "react";
+import { InputGroup, Label, MoviesSkeleton, Movies } from "@/app/components";
 
 const RootPage = () => (
   <div className="p-20 grid grid-cols-3 gap-x-14">
@@ -35,19 +35,9 @@ const RootPage = () => (
         افزودن فیلم
       </button>
     </form>
-    <ul className="col-span-2 grid grid-cols-5 gap-7">
-      {[...new Array(7)].map((_, index) => (
-        <li key={index} className="space-y-3 group">
-          <div className="w-full h-[220px] bg-gray-200 rounded-2xl group-hover:bg-gray-300 transition-all" />
-          <div className="flex justify-between px-2 gap-x-2 items-center">
-            <h2 className="font-medium group-hover:text-gray-600 transition-all line-clamp-1">
-              فیلم {index + 1}
-            </h2>
-            <CgTrash className="w-5 h-5 shrink-0 hover:text-red-600 cursor-pointer transition-all text-gray-400" />
-          </div>
-        </li>
-      ))}
-    </ul>
+    <Suspense fallback={<MoviesSkeleton />}>
+      <Movies />
+    </Suspense>
   </div>
 );
 

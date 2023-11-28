@@ -2,6 +2,7 @@
   "recommendations": [
     "Syler.ignore",
     "EditorConfig.EditorConfig",
+    "IronGeek.vscode-env",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "rvest.vs-code-prettier-eslint",
