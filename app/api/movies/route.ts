@@ -1,11 +1,3 @@
-import type { Movie } from "@/app/lib/movies";
-
-const movies: Movie[] = [
-  {
-    id: 1,
-    title: "آدم کش",
-    thumbnail: "/movies/the-killer.jpg",
-  },
-];
+import { movies } from "@/app/lib/movies";
 
 export const GET = () => Response.json(movies);
