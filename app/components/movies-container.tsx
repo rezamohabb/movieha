@@ -5,12 +5,9 @@ import type { FC, HTMLAttributes } from "react";
 const MoviesContainer: FC<HTMLAttributes<HTMLUListElement>> = ({
   children,
   className,
-  ...moviesContainerProps
+  ...otherProps
 }) => (
-  <ul
-    {...moviesContainerProps}
-    className={clsx("grid grid-cols-5 gap-7", className)}
-  >
+  <ul {...otherProps} className={clsx("grid grid-cols-5 gap-7", className)}>
     {children}
   </ul>
 );

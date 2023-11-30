@@ -5,9 +5,9 @@ import type { FC, HTMLAttributes } from "react";
 const MovieContainer: FC<HTMLAttributes<HTMLLIElement>> = ({
   children,
   className,
-  ...movieContainerProps
+  ...otherProps
 }) => (
-  <li {...movieContainerProps} className={clsx("space-y-3 group", className)}>
+  <li {...otherProps} className={clsx("space-y-3 group", className)}>
     {children}
   </li>
 );

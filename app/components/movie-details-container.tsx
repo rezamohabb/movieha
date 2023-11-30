@@ -5,12 +5,9 @@ import type { FC, HTMLAttributes } from "react";
 const MovieDetailsContainer: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
-  ...movieDetailsContainerProps
+  ...otherProps
 }) => (
-  <div
-    {...movieDetailsContainerProps}
-    className={clsx("flex justify-between px-2", className)}
-  >
+  <div {...otherProps} className={clsx("flex justify-between px-2", className)}>
     {children}
   </div>
 );
