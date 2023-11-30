@@ -13,7 +13,7 @@ export const movies: Movie[] = [
 ];
 
 export const getMovies = async () => {
-  const moviesRequest = await fetch(`${process.env.BASE_URL}/api/movies`);
+  const moviesRequest = await fetch(`${process.env.API_BASE_URL}/api/movies`);
   const moviesResponse: Movie[] = await moviesRequest.json();
 
   return moviesResponse;
