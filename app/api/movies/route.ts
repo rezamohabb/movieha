@@ -8,4 +8,4 @@ const movies: Movie[] = [
   },
 ];
 
-export const GET = async () => Response.json(movies);
+export const GET = () => Response.json(movies);
