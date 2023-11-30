@@ -1,4 +1,5 @@
 import {
+  MovieNotFound,
   MovieContainer,
   MoviesContainer,
   MovieDetailsContainer,
@@ -9,6 +10,8 @@ import { getMovies } from "@/app/lib/movies";
 
 const Movies = async () => {
   const movies = await getMovies();
+
+  if (movies.length === 0) return <MovieNotFound />;
 
   return (
     <MoviesContainer>

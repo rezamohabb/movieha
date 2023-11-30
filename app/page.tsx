@@ -35,9 +35,11 @@ const RootPage = () => (
         افزودن فیلم
       </button>
     </form>
-    <Suspense fallback={<MoviesSkeleton />}>
-      <Movies />
-    </Suspense>
+    <div className="col-span-2">
+      <Suspense fallback={<MoviesSkeleton />}>
+        <Movies />
+      </Suspense>
+    </div>
   </div>
 );
 

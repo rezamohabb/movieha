@@ -9,7 +9,7 @@ const MoviesContainer: FC<HTMLAttributes<HTMLUListElement>> = ({
 }) => (
   <ul
     {...moviesContainerProps}
-    className={clsx("col-span-2 grid grid-cols-5 gap-7", className)}
+    className={clsx("grid grid-cols-5 gap-7", className)}
   >
     {children}
   </ul>
