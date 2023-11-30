@@ -5,11 +5,11 @@ import {
   MovieDetailsContainer,
 } from "@/app/components";
 import Image from "next/image";
+import prisma from "@/app/lib/prisma";
 import { CgTrash } from "react-icons/cg";
-import { getMovies } from "@/app/lib/movies";
 
 const Movies = async () => {
-  const movies = await getMovies();
+  const movies = await prisma.movie.findMany();
 
   if (movies.length === 0) return <MovieNotFound />;
 

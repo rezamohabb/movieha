@@ -10,6 +10,7 @@
     "formulahendry.auto-rename-tag",
     "steoates.autoimport",
     "csstools.postcss",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "Prisma.prisma"
   ]
 }
