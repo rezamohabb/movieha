@@ -22,7 +22,7 @@ const Movies = async () => {
             width={160}
             height={220}
             alt={movie.title}
-            src={movie.thumbnail}
+            src={`${process.env.NEXT_PUBLIC_IMAGES_URL}/${movie.thumbnail}`}
             className="w-full rounded-2xl group-hover:brightness-75 transition-all h-[220px]"
           />
           <MovieDetailsContainer className="gap-x-2">
