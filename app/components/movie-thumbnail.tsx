@@ -29,10 +29,14 @@ const MovieThumbnail: FC<Parameters<typeof Image>[number]> = ({
         height={220}
         {...otherProps}
         onLoad={() => setLoading(false)}
-        className={clsx("w-full h-[220px] transition-all", className, {
-          "opacity-0": isLoading,
-          "group-hover:brightness-75 opacity-100": !isLoading,
-        })}
+        className={clsx(
+          "w-full h-[220px] transition-all object-cover",
+          className,
+          {
+            "opacity-0": isLoading,
+            "group-hover:brightness-75 opacity-100": !isLoading,
+          },
+        )}
       />
     </div>
   );
