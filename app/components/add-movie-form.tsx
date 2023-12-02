@@ -14,7 +14,6 @@ const AddMovieForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<AddMovieFormType>({
-    mode: "all",
     resolver: zodResolver(AddMovieFormSchema),
   });
 
