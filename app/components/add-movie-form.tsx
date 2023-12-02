@@ -12,7 +12,7 @@ const AddMovieForm = () => {
     reset,
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<AddMovieFormType>({
     mode: "all",
     resolver: zodResolver(AddMovieFormSchema),
@@ -76,8 +76,8 @@ const AddMovieForm = () => {
       </InputGroup>
       <button
         type="submit"
-        disabled={!isValid || isSubmitting}
-        className="bg-sky-500 h-14 w-full rounded-2xl text-white hover:bg-sky-600 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
+        disabled={isSubmitting}
+        className="bg-sky-500 h-14 w-full rounded-2xl text-white hover:bg-sky-600 transition-all"
       >
         افزودن فیلم
       </button>
