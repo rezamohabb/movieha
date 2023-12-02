@@ -1,8 +1,8 @@
 "use server";
 
 import prisma from "@/app/lib/prisma";
-import { uploadFile } from "@/app/lib/s3";
 import { revalidatePath } from "next/cache";
+import { uploadFile, deleteFile } from "@/app/lib/s3";
 
 export const uploadMovieThumbnail = async (formData: FormData) => {
   const thumbnail = formData.get("thumbnail") as File;
@@ -32,7 +32,11 @@ export const addMovie = async (formData: FormData) => {
 export const deleteMovie = async (formData: FormData) => {
   const movieId = formData.get("movieId");
 
-  await prisma.movie.delete({ where: { id: movieId as string } });
+  const { thumbnail } = await prisma.movie.delete({
+    where: { id: movieId as string },
+  });
+
+  await deleteFile(thumbnail);
 
   revalidatePath("/");
 };
