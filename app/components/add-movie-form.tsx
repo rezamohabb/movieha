@@ -2,9 +2,9 @@
 
 import { useForm } from "react-hook-form";
 import { RiLoopRightLine } from "react-icons/ri";
-import { InputGroup, Label } from "@/app/components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { uploadMovieThumbnail, addMovie } from "@/app/lib/actions";
+import { InputGroup, Label, AddMovieFormError } from "@/app/components";
 import { type AddMovieFormType, AddMovieFormSchema } from "@/app/lib/zod";
 
 const AddMovieForm = () => {
@@ -12,8 +12,9 @@ const AddMovieForm = () => {
     reset,
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isValid, isSubmitting },
   } = useForm<AddMovieFormType>({
+    mode: "all",
     resolver: zodResolver(AddMovieFormSchema),
   });
 
@@ -47,7 +48,7 @@ const AddMovieForm = () => {
           className="w-full bg-gray-200 py-4 rounded-2xl px-5 border border-gray-300 focus:border-gray-400 transition-all placeholder:text-gray-400"
         />
         {errors.title && (
-          <p className="text-sm text-red-500">{errors.title.message}</p>
+          <AddMovieFormError>{errors.title.message}</AddMovieFormError>
         )}
       </InputGroup>
       <InputGroup>
@@ -70,12 +71,13 @@ const AddMovieForm = () => {
           </p>
         </label>
         {errors.thumbnail && (
-          <p className="text-sm text-red-500">{errors.thumbnail.message}</p>
+          <AddMovieFormError>{errors.thumbnail.message}</AddMovieFormError>
         )}
       </InputGroup>
       <button
         type="submit"
-        className="bg-sky-500 h-14 w-full rounded-2xl text-white hover:bg-sky-600 transition-all"
+        disabled={!isValid || isSubmitting}
+        className="bg-sky-500 h-14 w-full rounded-2xl text-white hover:bg-sky-600 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
         افزودن فیلم
       </button>
