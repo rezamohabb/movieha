@@ -10,3 +10,4 @@ export { default as MoviesSkeleton } from "./movies-skeleton";
 export { default as MovieThumbnail } from "./movie-thumbnail";
 export { default as DeleteMovieButton } from "./delete-movie-button";
 export { default as Movies } from "./movies";
+export { default as AddMovieModal } from "./add-movie-modal";

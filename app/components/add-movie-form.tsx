@@ -1,5 +1,6 @@
 "use client";
 
+import { type FC, useId } from "react";
 import { useForm } from "react-hook-form";
 import { RiLoopRightLine } from "react-icons/ri";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,7 +8,13 @@ import { uploadMovieThumbnail, addMovie } from "@/app/lib/actions";
 import { InputGroup, Label, AddMovieFormError } from "@/app/components";
 import { type AddMovieFormType, AddMovieFormSchema } from "@/app/lib/zod";
 
-const AddMovieForm = () => {
+interface AddMovieFormProps {
+  afterAddMovieCallback?: () => void;
+}
+
+const AddMovieForm: FC<AddMovieFormProps> = ({ afterAddMovieCallback }) => {
+  const titleInputId = useId();
+  const thumbnailInputId = useId();
   const {
     reset,
     register,
@@ -31,17 +38,18 @@ const AddMovieForm = () => {
     await addMovie(addMovieData);
 
     reset();
+    afterAddMovieCallback();
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="shadow-lg p-5 rounded-2xl shadow-gray-200 space-y-5 relative overflow-hidden"
+      className="shadow-lg p-5 rounded-2xl shadow-gray-200 space-y-5 relative overflow-hidden bg-white"
     >
       <InputGroup>
-        <Label htmlFor="title">نام فیلم</Label>
+        <Label htmlFor={titleInputId}>نام فیلم</Label>
         <input
-          id="title"
+          id={titleInputId}
           {...register("title")}
           placeholder="برای مثال: آدم کش"
           className="w-full bg-gray-200 py-4 rounded-2xl px-5 border border-gray-300 focus:border-gray-400 transition-all placeholder:text-gray-400"
@@ -51,15 +59,15 @@ const AddMovieForm = () => {
         )}
       </InputGroup>
       <InputGroup>
-        <Label htmlFor="thumbnail">عکس فیلم</Label>
+        <Label htmlFor={thumbnailInputId}>عکس فیلم</Label>
         <input
           type="file"
-          id="thumbnail"
           className="hidden"
+          id={thumbnailInputId}
           {...register("thumbnail")}
         />
         <label
-          htmlFor="thumbnail"
+          htmlFor={thumbnailInputId}
           className="border border-gray-300 h-36 rounded-2xl flex flex-col items-center justify-center gap-y-2 bg-gray-200"
         >
           <h2 className="text-gray-400">
